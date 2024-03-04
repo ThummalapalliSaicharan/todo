@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/assets4/css/style.css">
+  <style>
+        table {
+  border-collapse: collapse;
+  width: 100%;
+
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #D6EEEE;
+}
+    </style>
+</head>
+<body>
+<nav style="display:flex;height:45px;background-color:skyblue;">
+    <div class="wrapper d-flex align-items-stretch" style="margin-top:0px;">
+        <nav id="sidebar" class="active">
+            <div class="custom-menu" style="margin-top:0px;">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary" style="margin-top:0px;"></button>
+            </div>
+            <div class="img bg-wrap text-center py-4" style="background-image: url(/static/assets4/images/bg_1.jpg);">
+                <div class="user-logo">
+                    <div class="img" style="background-image: url(/static/assets4/images/logo.jpg);"></div>
+                    <h3>Catriona Henderson</h3>
+                </div>
+            </div>
+            <ul class="list-unstyled components mb-5">
+                <li class="active" style="background-color:red;">
+                    <a href="/static/assets4/#"><span class="fa fa-home mr-3"></span> Home</a>
+                </li>
+                <li>
+                    <a href="/static/assests4/#"><span class="fa fa-download mr-3 notif"><small class="d-flex align-items-center justify-content-center">5</small></span> Download</a>
+                </li>
+                <li>
+                    <a href="static/assests4/#"><span class="fa fa-gift mr-3"></span> Gift Code</a>
+                </li>
+                <li>
+                    <a href="static/assests4/#"><span class="fa fa-trophy mr-3"></span> Top Review</a>
+                </li>
+                <li>
+                    <a href="static/assets4/#"><span class="fa fa-cog mr-3"></span> Settings</a>
+                </li>
+                <li>
+                    <a href="static/assests4/#"><span class="fa fa-support mr-3"></span> Support</a>
+                </li>
+                <li>
+                    <a href="static/assests4/#"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <a href="{% url 'logout' %}"><button style="background-color:red;width:60px;border-radius:4px;height:32px;margin-top:5px;">Logout</button></a>
+</nav>
+
+<div style="margin-top: 120px;width:700px;margin-left:25%;border:solid;height:100%;">
+    <h1 style="margin-left:300px;">TODO</h1>
+     <div style="width:700px;height:60px;margin-left:0px;border-bottom:groove;border-color:black;border-radius:0px;;">
+<form method="POST">
+    {% csrf_token %}
+
+<label style="font-size:20px;margin-left:150px;">Task :</label>
+<input style="margin-left:30px;margin-top:22px;height:25px;border:groove;border-color:black;border-radius:8px;" name="task" >
+<button style="background-color:#4CAF50;width:60px;border-radius:4px;height:32px;margin-top:5px;">Add</button>
+</form>
+</div>
+    <div style="margin-top: 20px;width:650px;margin-left:20px;height:100%;margin-bottom:20px;">
+
+        <table>
+  <tr style="border-bottom:groove;border-color:black;">
+      <th>Date</th>
+  <th>Todo</th>
+  <th>Progress</th>
+  <th>Updates</th>
+  </tr>
+            {% for i in todos %}
+  <tr style="border-bottom:groove;border-color:black;">
+  <td>{{i.date}}</td>
+  <td> <H3>{{i.todo_name}}</H3></td>
+  <td> {% if i.status == True %}
+          <p>Completed</p>
+        {% else %}
+          <p>In process</p>
+        {% endif %}</td>
+  <td> <a style="text-decoration:none;" href="{% url 'deletetodo' i.todo_name %}"> <button  style="background-color:red;width:60px;border-radius:4px;height:32px;margin-top:5px;" >Delete</button> </a>
+      <a style="text-decoration:none;" href="{% url 'updatetodo' i.todo_name %}"> <button  style="background-color:#4CAF50;width:60px;border-radius:4px;height:32px;margin-top:5px;">Finished</button> </a>
+  </td>
+  </tr>
+            {% endfor %}
+</table>
+
+
+
+    </div>
+    </div>
+{% if is_superuser %}
+    <form method="post" action="{% url 'send_reminder' %}">
+      {% csrf_token %}
+      <button type="submit" style="background-color:#4CAF50;width:150px;border-radius:4px;height:36px;margin-top:5px;">Send Reminder Emails</button>
+    </form>
+  {% endif %}
+
+
+<script src="/static/assets4/js/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+    });
+</script>
+</body>
+</html>

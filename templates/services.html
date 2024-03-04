@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.3/components/services/service-6/assets/css/service-6.css" />
+    <title>Services</title>
+
+  <link href="static/assets3/img/favicon.png" rel="icon">
+  <link href="static/assets3/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/assets3/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/assets3/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets3/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/assets3/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/assets3/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/assets3/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/assets3/css/style.css" rel="stylesheet">
+
+
+
+
+
+</head>
+<body>
+
+
+
+ <header id="header" class="fixed-top d-flex align-items-center" style="border-bottom:solid;color:white;">
+    <div class="container d-flex justify-content-between">
+
+      <div class="logo">
+        <h1><a href="index.html">TODOZ</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="static/assets3/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+
+
+      <nav id="navbar" class="navbar" style="background-color:black;items-align:center;">
+        <ul>
+          <li><a class="nav-link scrollto " style="color:white;"  href="{% url 'index'%}">Home</a></li>
+          <li><a class="nav-link scrollto active" href="{% url 'services' %}" style="color:white;" >Services</a></li>
+          <li><a class="nav-link scrollto" style="color:white;" href="{% url 'login' %}">Login</a></li>
+           <li><a class="nav-link scrollto" style="color:white;" href="{% url 'register' %}">Register</a></li>
+          <li><a class="nav-link scrollto" style="color:white;" href="{% url 'contactus' %}">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+
+
+
+<!-- Service 6 - Bootstrap Brain Component -->
+<section class="bsb-service-6 py-5 py-xl-8">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-12 col-md-10 col-lg-8 col-xl-7">
+        <h3 class="fs-6 mb-2 text-secondary text-center text-uppercase">What We Do?</h3>
+        <h2 class="display-5 mb-4 mb-md-5 text-center">We are giving you perfect solutions for work to-do.</h2>
+        <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
+      </div>
+    </div>
+  </div>
+
+  <div class="container overflow-hidden">
+    <div class="row gy-4 gy-md-0 gx-xxl-5">
+      <div class="col-12 col-md-4">
+        <div class="card bg-transparent border-primary rounded-0">
+
+          <div class="card-body">
+            <center><img src="static/images/to-do-list.png" style="height:150px;width:150px;align-items:center;margin-bottom:20px;"></center>
+          <center>  <h3 class="h2 mb-4">TODO</h3></center>
+            <p class="mb-4 text-secondary">They list everything that you have to do, with the most important tasks at the top of the list. By keeping such a list, you make sure that your tasks are written down all in one place so you don't forget anything important.</p>
+            <a href="{% url 'login' %}" class="fw-bold text-decoration-none link-primary">
+              Learn More
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card bg-transparent border-primary rounded-0">
+          <div class="card-body">
+             <center><img src="static/images/mail.png" style="height:150px;width:150px;align-items:center;margin-bottom:20px;"></center>
+          <center>  <h3 class="h2 mb-4">MAIL   INTIGRATION</h3></center>
+            <p class="mb-4 text-secondary" >Email integration is the process of connecting an email service to other software applications such as customer relationship management systems (CRMs).The customer will get mails about status of their Todos</p>
+            <a href="{% url 'login' %}" class="fw-bold text-decoration-none link-primary">
+              Learn More
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card bg-transparent border-primary rounded-0" >
+          <div class="card-body">
+            <center><img src="static/images/check-mark.png" style="height:130px;width:130px;align-items:center;margin-bottom:35px;"></center>
+            <center><h3 class="h2 mb-4">UPDATE STATUS</h3></center>
+            <p class="mb-4 text-secondary">The customer can update the status of todo list after completion of the task the user can update the task. When the task is addded it will show task in progress after updating the task then the task will be updated to completed</p>
+            <a href="{% url 'login' %}" class="fw-bold text-decoration-none link-primary">
+              Learn More
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</body>
+</html>

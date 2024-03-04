@@ -1,0 +1,143 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="static/assets2/https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="static/assets2/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="static/assets2/css/owl.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="static/assets2/css/bootstrap.min.css">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="static/assets2/css/style.css">
+
+
+
+
+ <link href="static/assets3/img/favicon.png" rel="icon">
+  <link href="static/assets3/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/assets3/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/assets3/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets3/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/assets3/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/assets3/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/assets3/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/assets3/css/style.css" rel="stylesheet">
+
+
+
+
+    <title>Login</title>
+  </head>
+  <body>
+
+   <header id="header" class="fixed-top d-flex align-items-center" style="border-bottom:solid;color:white;">
+    <div class="container d-flex justify-content-between">
+
+      <div class="logo">
+        <h1><a href="index.html">TODOZ</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="static/assets3/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+
+
+      <nav id="navbar" class="navbar" style="background-color:black;items-align:center;">
+        <ul>
+          <li><a class="nav-link scrollto " style="color:white;"  href="{% url 'index'%}">Home</a></li>
+          <li><a class="nav-link scrollto" style="color:white;"  href="{% url 'services' %}">Services</a></li>
+          <li><a class="nav-link scrollto active" style="color:white;" href="{% url 'login' %}">Login</a></li>
+           <li><a class="nav-link scrollto" style="color:white;" href="{% url 'register' %}">Register</a></li>
+          <li><a class="nav-link scrollto" style="color:white;"  href="{% url 'contactus' %}">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+
+  <div class="content" style="background-color:black;height:100vh;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="static/assets2/images/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="mb-4">
+              <h3 style="color:white;">Sign In</h3>
+               {% if messages %}
+            {% for message in messages %}
+            <h4 style="color:orange;display:inline;margin-left:0px;">{{message}}</h4>
+            {% endfor %}
+            {% endif %}
+            </div>
+            <form action="#" method="POST">
+                {% csrf_token %}
+              <div class="form-group first">
+
+                <input type="text" placeholder="Username" class="form-control" id="username" name="username" style="border-bottom:groove;border-color:black;color:black;font-size:17px;height:50px;">
+
+              </div>
+              <div class="form-group last mb-4">
+
+                <input type="password" placeholder="Password" class="form-control" id="password" name="password" required style="border-bottom:groove;border-color:black;color:black;font-size:17px;">
+
+              </div>
+
+              <div class="d-flex mb-5 align-items-center">
+                <label class="control control--checkbox mb-0"><span class="caption" style="color:white;">Remember me</span>
+                  <input  type="checkbox" checked="checked"/>
+                  <div class="control__indicator"></div>
+                </label>
+                <span class="ml-auto"><a href="{% url 'forgotpassword' %}" class="forgot-pass" style="color:white;">Forgot Password</a></span>
+              </div>
+
+              <input type="submit" value="Log In" class="btn btn-block btn-primary">
+
+              <span class="d-block text-left my-4 text-muted">&mdash; or login with &mdash;</span>
+
+              <div class="social-login">
+                <a href="{% url 'login' %}" class="facebook">
+                  <span class="icon-facebook mr-3"></span>
+                </a>
+                <a href="{% url 'login' %}" class="twitter">
+                  <span class="icon-twitter mr-3"></span>
+                </a>
+                <a href="{% url 'login' %}" class="google">
+                  <span class="icon-google mr-3"></span>
+                </a>
+              </div>
+            </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

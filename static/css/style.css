@@ -1,0 +1,148 @@
+  body {
+      overflow: hidden;
+    }
+
+    div {
+      height: 500px;
+      width: 500px;
+      margin-left: 33%;
+      border-radius: 20px;
+      background-color: white;
+    }
+
+    h1 {
+      margin-left: 40%;
+      margin-top: 10px;
+
+    }
+
+    .in1 {
+      width: 380px;
+      height: 35px;
+      margin-left: 25px;
+      margin-top: 40px;
+      border: solid;
+      border-radius: 15px;
+      font-size: 18px;
+    }
+
+    .in2 {
+      width: 380px;
+      height: 35px;
+      margin-left: 25px;
+      margin-top: 40px;
+      border: solid;
+      border-radius: 15px;
+      font-size: 18px;
+    }
+
+    .in3 {
+      width: 380px;
+      height: 35px;
+      margin-left: 25px;
+      margin-top: 40px;
+      border: solid;
+      border-radius: 15px;
+      font-size: 18px;
+    }
+
+    .in4 {
+      width: 380px;
+      height: 35px;
+      margin-left: 25px;
+      margin-top: 40px;
+      border: solid;
+      border-radius: 15px;
+      font-size: 18px;
+    }
+
+    .in5 {
+      width: 380px;
+      height: 35px;
+      margin-left: 25px;
+      margin-top: 40px;
+      border: solid;
+      border-radius: 15px;
+      font-size: 18px;
+    }
+
+    button {
+      height: 35px;
+      width: 37px;
+      border-radius: 20px;
+      background-color: green;
+      color: white;
+      border: none;
+    }
+
+    button:hover {
+      height: 38px;
+      width: 39px;
+      cursor: pointer;
+    }
+
+    button:active {
+      padding-bottom: 4px;
+    }
+
+    .b2 {
+      height: 35px;
+      width: 37px;
+      border-radius: 20px;
+      background-color: red;
+      color: white;
+      border: none;
+    }
+
+    .b2:hover {
+      height: 38px;
+      width: 39px;
+      cursor: pointer;
+    }
+
+    .b2:active {
+      padding-bottom: 4px;
+    }
+
+
+  .forgot {
+      margin-left: 15px;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+  }
+  .forgot:hover{
+    color: skyblue;
+  }
+
+
+ .in1{
+    height: 30px;
+    width: 280px;
+    border: solid;
+    margin-left: 20px;
+    border-radius: 10px;
+    background-color: transparent;
+        color: white;
+ }
+ .in2 {
+     height: 30px;
+     width: 280px;
+     border: solid;
+    margin-left: 20px;
+    border-radius: 10px;
+    background-color:transparent;
+    color: white;
+ }
+ .loginbtn{
+    height: 30px;
+    width: 60px;
+    margin-left: 200px;
+    background-color: rgb(96, 96, 242);
+    color: white;
+    border: none;
+    border-radius: 8px;
+ }
+ .loginbtn:active{
+    padding-top: 4px;
+ }

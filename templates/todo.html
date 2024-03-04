@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TODOZ</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/assets4/css/style.css">
+  <style>
+        table {
+  border-collapse: collapse;
+  width: 100%;
+
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #D6EEEE;
+}
+    </style>
+</head>
+<body style="margin: 0;
+    padding: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(/static/images/todobg.png);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;">
+<nav style="display:flex;height:55px;">
+    <div class="wrapper d-flex align-items-stretch" style="margin-top:0px;">
+        <nav id="sidebar" class="active">
+            <div class="custom-menu" style="margin-top:0px;">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary" style="margin-top:0px;"></button>
+            </div>
+            <div class="img bg-wrap text-center py-4" style="background-image: url(/static/assets4/images/bg_1.jpg);">
+                <div class="user-logo">
+                    <div class="img" style="background-image: url(/static/images/profile-user.png);background-color:white;"></div>
+
+                    <h3>{{username}}</h3>
+
+                </div>
+            </div>
+           <ul class="list-unstyled components mb-5" style="background:blur;" >
+    <li class="active" style="background-color:gray; margin-top: 25 px;">
+        <a href="{% url 'todo' %}"><span class="fa fa-home mr-3"></span> <span style="color:white;">Home</span></a>
+    </li>
+
+         <li style="background-color:gray; margin-top: 25px;">
+        <a href="{% url 'completedlist' %}"><span class="fa fa-support mr-3"></span> <span style="color:white;">Completed todos</span></a>
+    </li>
+
+    <li style="background-color:gray; margin-top: 25px;">
+        <a href="{% url 'changepassword' %}"><span class="fa fa-gift mr-3"></span>  <span style="color:white;">Change password</span></a>
+    </li>
+
+    <li style="background-color:gray; margin-top: 25px;">
+        <a href="{% url 'support' %}"><span class="fa fa-support mr-3"></span> <span style="color:white;">Support</span> </a>
+    </li>
+
+    <li style="background-color:gray; margin-top: 25px;">
+        <a href="{% url 'logout' %}"><span class="fa fa-sign-out mr-3"></span>  <span style="color:white;">Sign Out</span></a>
+    </li>
+</ul>
+
+        </nav>
+    </div>
+
+</nav>
+
+
+<div style="margin-top: 120px;width:700px;margin-left:25%;border:solid;height:100%;border-color:white;backdrop-filter:blur(8px);">
+    <h1 style="margin-left:280px;color:white;">TODO</h1>
+     <div style="width:700px;height:60px;margin-left:0px;border-color:black;border-radius:0px;;">
+<form method="POST">
+    {% csrf_token %}
+
+<label style="font-size:20px;margin-left:150px;color:white;">Task :</label>
+<input style="margin-left:30px;margin-top:22px;height:32px;border-radius:8px;" name="task" required>
+<button style="background-color:#4CAF50;width:60px;border-radius:4px;height:32px;margin-top:5px;border:none;color:white;">Add</button>
+</form>
+</div>
+    <div style="margin-top: 20px;width:650px;margin-left:20px;height:100%;margin-bottom:20px;">
+
+        <table>
+  <tr style="border-bottom:solid;border-color:white;color:white;font-size:18px;">
+      <th>Date</th>
+  <th>Todo</th>
+  <th>Progress</th>
+  <th>Updates</th>
+  </tr>
+
+            {% for i in todos %}
+            {% if i.status != True %}
+<tr style="border-bottom:groove;border-color:black;font-size:14px;background-color:white;">
+    <td style="color:black;">{{ i.date }}</td>
+    <td>
+        <h3 style="font-size:18px;">{{ i.todo_name }}</h3>
+    </td>
+    <td style="color:black;">
+        {% if i.status %}
+        <p style="margin-top:10px;">Completed</p>
+        {% else %}
+        <p style="margin-top:10px;">In process</p>
+        {% endif %}
+    </td>
+
+    <td>
+        <a style="text-decoration:none;" href="{% url 'deletetodo' i.id %}">
+            <button style="background-color:red;width:65px;border-radius:4px;height:32px;margin-top:5px;border:none;color:white;">Remove</button></a>
+          <a style="text-decoration:none;" href="{% url 'updatetodo' i.id %}"> <button style="background-color:#4CAF50;width:65px;border-radius:4px;height:32px;margin-top:5px;border:none;color:white;">Finished</button> </a>
+    </td>
+
+
+</tr>
+            {% endif %}
+{% endfor %}
+        </table>
+    </div>
+
+
+<script src="/static/assets4/js/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+    });
+
+    // static/js/session_timeout_alert.js
+
+(function() {
+    // Set the timeout in milliseconds
+    var sessionTimeout = {{ session_timeout }} * 1000; // Convert seconds to milliseconds
+
+    // Initialize variables
+    var timeoutAlert;
+    var isActive = true;
+
+    function startSessionTimer() {
+        timeoutAlert = setTimeout(function() {
+            var logout = confirm("Your session have expired.");
+
+            if (!logout) {
+                window.location.href = "{% url 'logout' %}"; // Redirect to logout URL if 'Cancel' is clicked
+            }
+        }, sessionTimeout);
+    }
+
+    function resetSessionTimer() {
+        clearTimeout(timeoutAlert);
+        if (isActive) {
+            startSessionTimer();
+        }
+    }
+
+    // Start session timer
+    startSessionTimer();
+
+    // Reset session timer on user activity
+    document.addEventListener('mousemove', function() {
+        resetSessionTimer();
+    });
+
+    document.addEventListener('keypress', function() {
+        resetSessionTimer();
+    });
+
+    // Check user activity every minute
+    setInterval(function() {
+        isActive = false;
+    }, 60000);
+
+    // When the user becomes active, reset the session timer
+    window.addEventListener('click', function() {
+        isActive = true;
+        resetSessionTimer();
+    });
+})();
+
+
+</script>
+
+</body>
+</html>
